@@ -1,0 +1,53 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Fitne</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'css/style.css' %}"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper black lighten-3">
+          <ul>
+            <li>
+              <a href="/" class="left brand-logo">&nbsp;&nbsp;FitnessBro</a>
+            </li>
+          </ul>
+          <ul class="right">
+            {% if user.is_authenticated %}
+            <li><a href="">Log Out</a></li>
+            {% else %}
+            <li><a href="">Sign Up</a></li>
+            <li><a href="">Log In</a></li>
+            {% endif %}
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main class="container">
+      {% block content %} Welcome to FitnessBro {% endblock %}
+    </main>
+    <footer class="page-footer black lighten-3">
+      <div class="right">
+        All Rights Reserved, &copy; FitnessBro 2022 &nbsp;
+      </div>
+    </footer>
+  </body>
+</html>

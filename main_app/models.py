@@ -4,8 +4,6 @@ from django.core.validators import MaxValueValidator, MinValueValidator
 
 
 class Profile(models.Model):
-    firstName = models.CharField(max_length=100)
-    lastName = models.CharField(max_length=100)
     age = models.IntegerField(
         validators=[
             MaxValueValidator(100),

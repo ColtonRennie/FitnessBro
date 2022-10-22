@@ -4,13 +4,8 @@
 <h1>Add Food</h1>
 {% endif %}
 
-<form action="" method="post">
+<form action="{% url 'food_create' %}" method="post">
   {% csrf_token %}
-  <input
-    type="hidden"
-    name="csrfmiddlewaretoken"
-    value="wxSk8T3AjW0ddQuDqQcbh2s50SSLjingfekUj9X9JMOhOyj2QcFuMX7iznAI7hhE"
-  />
   <table>
     <tbody>
       <tr>

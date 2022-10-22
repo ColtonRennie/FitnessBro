@@ -8,11 +8,6 @@
 
 <form method="post" action="{% url 'signup' %}">
   {% csrf_token %}
-  <input
-    type="hidden"
-    name="csrfmiddlewaretoken"
-    value="Tqmw9nuvOIZcpCS21qmB2F9RVE9oJsbTJQzzZcGdXFu01ZewtbMVu7QQ8G2A1LWJ"
-  />
   <p>
     <label for="id_first_name">First name:</label>
     <input type="text" name="first_name" maxlength="150" id="id_first_name" />
@@ -93,6 +88,6 @@
     >
   </p>
   <input type="submit" class="btn" value="signup" />
-
-  {% endblock %}
 </form>
+
+{% endblock %}

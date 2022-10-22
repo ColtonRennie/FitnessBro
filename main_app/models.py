@@ -1,6 +1,8 @@
 from importlib.metadata import requires
 from django.db import models
+from django.urls import reverse
 from django.contrib.auth.models import User
+from datetime import date
 from django.core.validators import MaxValueValidator, MinValueValidator
 
 
@@ -24,13 +26,18 @@ class Profile(models.Model):
 
 
 class Food(models.Model):
+    date = models.DateField('food date', default=date.today)
     name = models.CharField(max_length = 50)
     calories = models.IntegerField()
     protein = models.IntegerField()
     fats = models.IntegerField()
     carbohydrates = models.IntegerField()
     sodium = models.IntegerField()
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    
     def __str__(self): 
         return f"{self.name}"    
+
+    def get_absolute_url(self):
+        return reverse('profile_detail')
         

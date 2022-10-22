@@ -39,7 +39,11 @@ class FoodCreate(LoginRequiredMixin, CreateView):
   fields = ['name', 'calories', 'protein', 'carbohydrates', 'fats', 'sodium']
 
   def form_valid(self, form):
-    # Assign the logged in user (self.request.user)
-    form.instance.user = self.request.user  # form.instance is the cat
-    # Let the CreateView do its job as usual
+    form.instance.user = self.request.user  
     return super().form_valid(form)
+
+
+@login_required
+def food_index(request):
+  foods = Food.objects.filter(user=request.user)
+  return render(request, 'foods/index.html', { 'foods': foods })    

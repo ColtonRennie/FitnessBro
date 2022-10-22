@@ -3,16 +3,15 @@
 {% else %}
 <h1>Add Food</h1>
 {% endif %}
-<!-- Leaving the action empty makes the form post to the same url used to display it -->
+
 <form action="" method="post">
-  <!-- Django requires the following for security purposes -->
+  {% csrf_token %}
   <input
     type="hidden"
     name="csrfmiddlewaretoken"
     value="wxSk8T3AjW0ddQuDqQcbh2s50SSLjingfekUj9X9JMOhOyj2QcFuMX7iznAI7hhE"
   />
   <table>
-    <!-- Render the inputs inside of <tr>s & <td>s -->
     <tbody>
       <tr>
         <th><label for="id_name">Name:</label></th>

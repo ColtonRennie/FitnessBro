@@ -1,3 +1,5 @@
 {% extends 'base.html' %} {% block content %}
 <h1>Welcome {{user.username}}</h1>
+<h4>Daily Summary</h4>
+<a href="{% url 'food_create' %}">Add Food</a>
 {% endblock %}

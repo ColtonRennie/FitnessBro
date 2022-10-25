@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.views.generic.edit import CreateView, UpdateView
-from .models import Profile, Food
+from .models import Profile, Food, HealthRecord
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import UserForm
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
+from datetime import date
 
 def home(request):
   return render(request,'base.html')
@@ -71,4 +72,20 @@ def password_change(request):
         error_message = 'Invalid sign up - try again'
   form = PasswordChangeForm(user=request.user)
   context = {'form': form, 'error_message': error_message}
-  return render(request, 'registration/password-change.html', context)  
+  return render(request, 'registration/password-change.html', context)
+
+class HealthReordCreate(LoginRequiredMixin, CreateView):
+  model = HealthRecord
+  fields = ['weight', 'bodyfat']
+
+  def form_valid(self, form):
+    form.instance.user = self.request.user  
+    return super().form_valid(form)
+
+class HealthRecordUpdate(LoginRequiredMixin, UpdateView):
+  model = HealthRecord
+  fields = ['weight', 'bodyfat']
+
+  def form_valid(self, form):
+    form.instance.user = self.request.user  
+    return super().form_valid(form)  

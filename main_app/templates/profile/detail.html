@@ -1,6 +1,25 @@
 {% extends 'base.html' %} {% block content %}
-<h1>Welcome {{user.username}} <span><a href="{% url 'profile_update' profile.id%}">(edit profile)</a></span></h1>
+<h1>
+  Welcome! <span class="teal-text">{{user.username}} </span
+  ><span
+    ><a href="{% url 'profile_update' profile.id%}">(edit profile)</a></span
+  >
+</h1>
+{% if profile.checkedin_for_today %}
+<div class="card-panel teal-text center-align">
+  you are checked-in! click
+  <a href="{% url 'healthrecord_update' profile.get_today_record_id %}">here</a>
+  to edit.
+</div>
+{% else %}
+<div class="card-panel red-text center-align">
+  you haven't checked-in for today, click
+  <a href="{% url 'healthrecord_create' %}">here</a> to check-in!
+</div>
+{% endif %}
 <h4>Daily Summary</h4>
 <a href="{% url 'food_index' %}">Click for more detail</a><br>
 <a href="{% url 'food_create' %}">Add Food</a>
 {% endblock %}
+  </div>
+</div>

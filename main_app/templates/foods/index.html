@@ -14,6 +14,9 @@
             <p>Carbohydrates: {{ food.carbohydrates }}</p>
             <p>Sodium: {{ food.sodium }}</p>
         </div>
+      <div class="card-action">
+        <a href="{% url 'food_update' food.id %}">Edit</a>
+      </div>  
     </div>
   </a>
 {% endfor %}

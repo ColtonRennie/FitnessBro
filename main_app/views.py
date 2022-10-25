@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth import login
 from django.views.generic.edit import CreateView, UpdateView
 from .models import Profile, Food, HealthRecord
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from .models import Profile, Food
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import UserForm
@@ -92,3 +94,8 @@ class HealthRecordUpdate(LoginRequiredMixin, UpdateView):
   def form_valid(self, form):
     form.instance.user = self.request.user  
     return super().form_valid(form) 
+  fields = ['name', 'calories','protein', 'fats', 'carbohydrates', 'sodium']    
+
+class FoodDelete(DeleteView):
+  model = Food
+  success_url = '/food/' 

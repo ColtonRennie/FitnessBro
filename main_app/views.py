@@ -72,3 +72,9 @@ def password_change(request):
   form = PasswordChangeForm(user=request.user)
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/password-change.html', context)  
+
+
+
+class FoodUpdate(UpdateView):
+  model = Food
+  fields = ['name', 'calories','protein', 'fats', 'carbohydrates', 'sodium']    

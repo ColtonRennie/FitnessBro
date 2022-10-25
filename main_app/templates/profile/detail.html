@@ -1,0 +1,6 @@
+{% extends 'base.html' %} {% block content %}
+<h1>Welcome {{user.username}} <span><a href="{% url 'profile_update' profile.id%}">(edit profile)</a></span></h1>
+<h4>Daily Summary</h4>
+<a href="{% url 'food_index' %}">Click for more detail</a><br>
+<a href="{% url 'food_create' %}">Add Food</a>
+{% endblock %}

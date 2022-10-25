@@ -1,0 +1,67 @@
+{% extends 'base.html' %} {% block content %} {% if object %}
+<h1>Edit <span class="teal-text">{{object.name}}</span></h1>
+{% else %}
+<h1>Add Food</h1>
+{% endif %}
+
+<form action="{% url 'food_create' %}" method="post">
+  {% csrf_token %}
+  <table>
+    <tbody>
+      <tr>
+        <th><label for="id_name">Name:</label></th>
+        <td>
+          <input
+            type="text"
+            name="name"
+            maxlength="50"
+            required=""
+            id="id_name"
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <th><label for="id_calories">Calories:</label></th>
+        <td>
+          <input type="number" name="calories" required="" id="id_calories" />
+        </td>
+      </tr>
+
+      <tr>
+        <th><label for="id_protein">Protein(g):</label></th>
+        <td>
+          <input type="number" name="protein" required="" id="id_protein" />
+        </td>
+      </tr>
+
+      <tr>
+        <th><label for="id_carbohydrates">Carbohydrates(g):</label></th>
+        <td>
+          <input
+            type="number"
+            name="carbohydrates"
+            required=""
+            id="id_carbohydrates"
+          />
+        </td>
+      </tr>
+
+      <tr>
+        <th><label for="id_fats">Fats(g):</label></th>
+        <td>
+          <input type="number" name="fats" required="" id="id_fats" />
+        </td>
+      </tr>
+
+      <tr>
+        <th><label for="id_sodium">Sodium(mg):</label></th>
+        <td>
+          <input type="number" name="sodium" required="" id="id_sodium" />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <input type="submit" value="Submit!" class="btn" />
+</form>
+{% endblock %}

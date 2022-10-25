@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Daily Food Summary</h1>
+
+{% for food in foods %}
+  <a href=''>
+    <div class="card">
+        <div class="card-content">
+            <span class="card-title">{{ food.name }}</span>
+            <p>Calories: {{ food.calories }}</p>
+            <p>Protein: {{ food.protein }}</p>
+            <p>Fats: {{ food.fats }}</p>
+            <p>Carbohydrates: {{ food.carbohydrates }}</p>
+            <p>Sodium: {{ food.sodium }}</p>
+        </div>
+    </div>
+  </a>
+{% endfor %}
+{% endblock %}
+

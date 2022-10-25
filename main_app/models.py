@@ -23,6 +23,8 @@ class Profile(models.Model):
     def __str__(self): 
         return f"{self.user.username}"
 
+    def get_absolute_url(self):
+        return reverse('profile_detail')
 
 
 class Food(models.Model):

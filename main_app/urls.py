@@ -12,4 +12,6 @@ urlpatterns = [
     path('food/create/', views.FoodCreate.as_view(), name='food_create'),
     path('food/', views.food_index, name='food_index'),
     path('food/<int:pk>/update/', views.FoodUpdate.as_view(), name='food_update'),
+    path('healthrecord/create', views.HealthReordCreate.as_view(), name='healthrecord_create'),
+    path('healthrecord/<int:pk>/update', views.HealthRecordUpdate.as_view(), name = 'healthrecord_update'),
 ]

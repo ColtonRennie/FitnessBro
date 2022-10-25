@@ -26,6 +26,11 @@ class Profile(models.Model):
     def get_absolute_url(self):
         return reverse('profile_detail')
 
+    def checkedin_for_today(self):
+        return HealthRecord.objects.filter(user=self.user).filter(date=date.today()).count() == 1
+
+    def get_today_record_id(self):
+        return HealthRecord.objects.filter(user=self.user).filter(date=date.today()).first().id
 
 class Food(models.Model):
     date = models.DateField('food date', default=date.today)
@@ -43,3 +48,24 @@ class Food(models.Model):
     def get_absolute_url(self):
         return reverse('profile_detail')
         
+class HealthRecord(models.Model):
+    date = models.DateField('food date', default=date.today)
+    weight = models.IntegerField(
+        validators=[
+            MaxValueValidator(200),
+            MinValueValidator(1)
+        ]
+    )
+    bodyfat = models.IntegerField(
+        validators=[
+            MaxValueValidator(100),
+            MinValueValidator(1)
+        ]
+    )
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def get_absolute_url(self):
+        return reverse('profile_detail')
+
+    def __str__(self): 
+        return f"{self.date}"

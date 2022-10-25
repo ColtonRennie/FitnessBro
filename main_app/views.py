@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login
+from django.views.generic.edit import CreateView, UpdateView
+from .models import Profile, Food, HealthRecord
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Profile, Food
 from django.contrib.auth.decorators import login_required
@@ -73,13 +75,27 @@ def password_change(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/password-change.html', context)  
 
-
-
 class FoodUpdate(UpdateView):
   model = Food
+  fields = ['name', 'calories','protein', 'fats', 'carbohydrates', 'sodium']   
+
+class HealthReordCreate(LoginRequiredMixin, CreateView):
+  model = HealthRecord
+  fields = ['weight', 'bodyfat']
+
+  def form_valid(self, form):
+    form.instance.user = self.request.user  
+    return super().form_valid(form)
+
+class HealthRecordUpdate(LoginRequiredMixin, UpdateView):
+  model = HealthRecord
+  fields = ['weight', 'bodyfat']
+
+  def form_valid(self, form):
+    form.instance.user = self.request.user  
+    return super().form_valid(form) 
   fields = ['name', 'calories','protein', 'fats', 'carbohydrates', 'sodium']    
 
 class FoodDelete(DeleteView):
   model = Food
-  success_url = '/food/'   
-
+  success_url = '/food/' 

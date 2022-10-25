@@ -93,8 +93,7 @@ class HealthRecordUpdate(LoginRequiredMixin, UpdateView):
 
   def form_valid(self, form):
     form.instance.user = self.request.user  
-    return super().form_valid(form) 
-  fields = ['name', 'calories','protein', 'fats', 'carbohydrates', 'sodium']    
+    return super().form_valid(form)  
 
 class FoodDelete(DeleteView):
   model = Food

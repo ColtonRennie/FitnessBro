@@ -19,7 +19,16 @@ class Profile(models.Model):
             MinValueValidator(1)
         ]
     )
+
+    daily_calories_goal = models.IntegerField(
+        validators=[
+            MaxValueValidator(20000),
+            MinValueValidator(1)
+        ]
+    )
+    
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+
     def __str__(self): 
         return f"{self.user.username}"
 
@@ -31,6 +40,13 @@ class Profile(models.Model):
 
     def get_today_record_id(self):
         return HealthRecord.objects.filter(user=self.user).filter(date=date.today()).first().id
+
+    def calculate_calories_remaining(self):
+        foods = Food.objects.filter(user=self.user, date=date.today())
+        total_calories = 0
+        for food in foods:
+            total_calories+=food.calories
+        return self.daily_calories_goal - total_calories
 
 class Food(models.Model):
     date = models.DateField('food date', default=date.today)

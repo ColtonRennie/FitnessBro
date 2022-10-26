@@ -17,7 +17,12 @@
     <a href="{% url 'healthrecord_create' %}">here</a> to check-in!
   </div>
   {% endif %}
-<h4>Daily Summary</h4>
-<a href="{% url 'food_index' %}">Click for more detail</a><br>
-<a href="{% url 'food_create' %}">Add Food</a>
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">Daily Summary</span>
+      <h6>calories remaining: {{profile.calculate_calories_remaining}}</h6>
+      <a href="{% url 'food_index' %}">Click for more detail</a><br />
+      <a href="{% url 'food_create' %}">Add Food</a>
+    </div>
+  </div>
 {% endblock %}

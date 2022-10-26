@@ -54,7 +54,7 @@ def food_index(request):
 
 class ProfileUpdate(LoginRequiredMixin, UpdateView):
   model = Profile
-  fields = ['age', 'height']
+  fields = ['age', 'height', 'daily_calories_goal']
 
   def form_valid(self, form):
     form.instance.user = self.request.user  
@@ -79,6 +79,10 @@ class FoodUpdate(UpdateView):
   model = Food
   fields = ['name', 'calories','protein', 'fats', 'carbohydrates', 'sodium']   
 
+class FoodDelete(DeleteView):
+  model = Food
+  success_url = '/food/' 
+
 class HealthReordCreate(LoginRequiredMixin, CreateView):
   model = HealthRecord
   fields = ['weight', 'bodyfat']
@@ -94,7 +98,3 @@ class HealthRecordUpdate(LoginRequiredMixin, UpdateView):
   def form_valid(self, form):
     form.instance.user = self.request.user  
     return super().form_valid(form)  
-
-class FoodDelete(DeleteView):
-  model = Food
-  success_url = '/food/' 

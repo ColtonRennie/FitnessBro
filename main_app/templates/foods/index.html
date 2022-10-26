@@ -2,7 +2,9 @@
 {% block content %}
 
 <h1>Daily Food Summary</h1>
-
+{% if not foods%}
+<div class="card-panel black-text center-align">you haven't eaton for today, click <a href="{% url 'food_create' %}">here</a> to start off your day!</div>
+{% else %}
 {% for food in foods %}
   <a href=''>
     <div class="card">
@@ -21,5 +23,6 @@
     </div>
   </a>
 {% endfor %}
+{% endif %}
 {% endblock %}
 

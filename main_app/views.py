@@ -9,6 +9,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from .forms import UserForm
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
+from datetime import date
 
 def home(request):
   return render(request,'base.html')
@@ -49,7 +50,7 @@ class FoodCreate(LoginRequiredMixin, CreateView):
 
 @login_required
 def food_index(request):
-  foods = Food.objects.filter(user=request.user)
+  foods = Food.objects.filter(user=request.user, date=date.today())
   return render(request, 'foods/index.html', { 'foods': foods })  
 
 class ProfileUpdate(LoginRequiredMixin, UpdateView):

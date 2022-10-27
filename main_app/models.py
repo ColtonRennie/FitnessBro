@@ -65,8 +65,9 @@ class Food(models.Model):
         return reverse('profile_detail')
         
 class HealthRecord(models.Model):
-    date = models.DateField('food date', default=date.today)
+    date = models.DateField('date', default=date.today)
     weight = models.IntegerField(
+        'weight(kg)',
         validators=[
             MaxValueValidator(200),
             MinValueValidator(1)

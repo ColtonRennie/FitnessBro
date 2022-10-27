@@ -32,7 +32,6 @@
           </ul>
           <ul class="right">
             {% if user.is_authenticated %}
-            <li><a href="{% url 'healthrecord_create' %}">Check-In</a></li>
             <li><a href="{% url 'profile_detail' %}">Profile</a></li>
             <li><a href="{% url 'logout' %}">Log Out</a></li>
             {% else %}

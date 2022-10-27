@@ -1,10 +1,6 @@
 {% extends 'base.html' %}
 {% block content %}
-  {% if object %}
-    <h1>Edit <span class="teal-text">{{object.name}} ({{user.first_name}} {{user.last_name}})</span></h1>
-  {% else %}
-    <h1>Add Toy</h1>
-  {% endif %}
+  <h1>Edit <span class="teal-text">({{user.first_name}} {{user.last_name}})</span></h1>
   <!-- Leaving the action empty makes the form post to the same url used to display it -->
   <form action="" method="post">
     <!-- Django requires the following for security purposes -->

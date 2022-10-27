@@ -1,28 +1,56 @@
 {% extends 'base.html' %} {% block content %}
 <h1>
-    Welcome! <span class="teal-text">{{user.username}} </span
-    ><span
-      ><a href="{% url 'profile_update' profile.id%}">(edit profile)</a></span
-    >
-  </h1>
-  {% if profile.checkedin_for_today %}
-  <div class="card-panel teal-text center-align">
-    you are checked-in! click
-    <a href="{% url 'healthrecord_update' profile.get_today_record_id %}">here</a>
-    to edit.
+  Welcome! <span class="teal-text">{{user.username}} </span
+  ><span
+    ><a href="{% url 'profile_update' profile.id%}">(edit profile)</a></span
+  >
+</h1>
+{% if profile.checkedin_for_today %}
+<div class="card-panel teal-text center-align">
+  you are checked-in! click
+  <a href="{% url 'healthrecord_update' profile.get_today_record_id %}">here</a>
+  to edit.
+</div>
+{% else %}
+<div class="card-panel red-text center-align">
+  you haven't checked-in for today, click
+  <a href="{% url 'healthrecord_create' %}">here</a> to check-in!
+</div>
+{% endif %}
+<div class="card">
+  <div class="card-content">
+    <span class="card-title">Daily Summary</span>
+    <h6>calories remaining: {{profile.calculate_calories_remaining}}</h6>
+    <a href="{% url 'food_index' %}">Click for more detail</a><br />
+    <a href="{% url 'food_create' %}">Add Food</a>
   </div>
-  {% else %}
-  <div class="card-panel red-text center-align">
-    you haven't checked-in for today, click
-    <a href="{% url 'healthrecord_create' %}">here</a> to check-in!
-  </div>
-  {% endif %}
-  <div class="card">
-    <div class="card-content">
-      <span class="card-title">Daily Summary</span>
-      <h6>calories remaining: {{profile.calculate_calories_remaining}}</h6>
-      <a href="{% url 'food_index' %}">Click for more detail</a><br />
-      <a href="{% url 'food_create' %}">Add Food</a>
-    </div>
-  </div>
+</div>
+
+<canvas id="myChart" width="800" height="400"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<canvas id="myChart" width="800" height="400"></canvas>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  const ctx = document.getElementById('myChart').getContext('2d');
+  const myChart = new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels : [{% for item in data %}"{{ item.date }}",{% endfor %}],
+          datasets: [{
+            label: "Body Weight Graph",
+            data : [{% for item in data %}{{ item.weight }},{% endfor %}],
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+          }]
+      },
+      options: {
+          scales: {
+              y: {
+                  beginAtZero: true
+              }
+          }
+      }
+  });
+</script>
 {% endblock %}

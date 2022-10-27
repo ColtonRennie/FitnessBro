@@ -33,11 +33,12 @@ def signup(request):
 @login_required
 def profile_detail(request):
   profile = Profile.objects.get(user=request.user)
+  data = HealthRecord.objects.filter(user=request.user).order_by('date')
   return render(request, 'profile/detail.html', {
     'profile': profile, 
-    'user': request.user
+    'user': request.user,
+    "data": data
   })
-
 
 class FoodCreate(LoginRequiredMixin, CreateView):
   model = Food

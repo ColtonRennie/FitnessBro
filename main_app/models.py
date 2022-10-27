@@ -14,6 +14,7 @@ class Profile(models.Model):
         ]
     )
     height = models.IntegerField(
+        'height(cm)',
         validators=[
             MaxValueValidator(250),
             MinValueValidator(1)
@@ -21,6 +22,7 @@ class Profile(models.Model):
     )
 
     daily_calories_goal = models.IntegerField(
+        'Daily Calories Goal(cal)',
         validators=[
             MaxValueValidator(20000),
             MinValueValidator(1)
@@ -51,11 +53,11 @@ class Profile(models.Model):
 class Food(models.Model):
     date = models.DateField('food date', default=date.today)
     name = models.CharField(max_length = 50)
-    calories = models.IntegerField()
-    protein = models.IntegerField()
-    fats = models.IntegerField()
-    carbohydrates = models.IntegerField()
-    sodium = models.IntegerField()
+    calories = models.IntegerField('Calories')
+    protein = models.IntegerField('Protein(g)')
+    fats = models.IntegerField('Fat(g)')
+    carbohydrates = models.IntegerField('Carbs(g)')
+    sodium = models.IntegerField('Sodium(mg)')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     
     def __str__(self): 

@@ -17,9 +17,19 @@
       <p>Sodium: {{ food.sodium }}mg</p>
     </div>
     <div class="card-action">
-      <a href="{% url 'food_update' food.id %}">Edit</a>
-      <a href="{% url 'food_delete' food.id %}">Delete</a>
+      <a
+        class="btn black yellow-text text-darken-2"
+        href="{% url 'food_update' food.id %}"
+        >Edit</a
+      >
+      <a
+        class="btn black yellow-text text-darken-2"
+        href="{% url 'food_delete' food.id %}"
+        >Delete</a
+      >
     </div>
   </div>
+
+  {% endfor %} {% endif %}
 </div>
-{% endfor %} {% endif %} {% endblock %}
+{% endblock %}

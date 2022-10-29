@@ -6,22 +6,20 @@
 <div class="card-panel black-text center-align">you haven't eaton for today, click <a href="{% url 'food_create' %}">here</a> to start off your day!</div>
 {% else %}
 {% for food in foods %}
-  <a href=''>
     <div class="card">
         <div class="card-content">
             <span class="card-title">{{ food.name }}</span>
             <p>Calories: {{ food.calories }}</p>
-            <p>Protein: {{ food.protein }}</p>
-            <p>Fats: {{ food.fats }}</p>
-            <p>Carbohydrates: {{ food.carbohydrates }}</p>
-            <p>Sodium: {{ food.sodium }}</p>
+            <p>Protein: {{ food.protein }}g</p>
+            <p>Fats: {{ food.fats }}g</p>
+            <p>Carbohydrates: {{ food.carbohydrates }}g</p>
+            <p>Sodium: {{ food.sodium }}mg</p>
         </div>
       <div class="card-action">
         <a href="{% url 'food_update' food.id %}">Edit</a>
         <a href="{% url 'food_delete' food.id %}">Delete</a>
       </div>  
     </div>
-  </a>
 {% endfor %}
 {% endif %}
 {% endblock %}

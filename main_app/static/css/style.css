@@ -56,20 +56,12 @@ span {
   font-size: 30px;
 }
 
-.food_index {
-  position: absolute;
-  left: 68rem;
-  bottom: 1rem;
-}
-.food_create {
-  position: absolute;
-  left: 73rem;
-  top: 1rem;
+.summary-button {
+  position: relative;
+  text-align: right;
 }
 
 .checked-in {
-  padding: 2rem;
-  position: absolute;
-  right: 22.5rem;
-  top: 6.5rem;
+  position: relative;
+  padding-right: 10px;
 }

@@ -40,7 +40,10 @@
         {% endfor %}
     </div>
 </div>
+{% else %}
+<br><p>no display data on this date</p>
 {% endif %}
+
 <script>
     // create a datepicker
     var dateEl = document.getElementById('id_date');

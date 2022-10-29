@@ -107,11 +107,11 @@ Don't forget to give the project a star! Thanks again!
 <!-- CONTACT -->
 ## Contact
 
-Colton Rennie : [@Facebook](https://www.facebook.com/colton.rennie) --- [@Linkedin](https://www.linkedin.com/in/colton-rennie-22a907b1/) --- [@Twitter](https://twitter.com/Colton_Rennie90) --- Colton.Rennie@hotmail.com ---
+Colton Rennie : [@Facebook](https://www.facebook.com/colton.rennie) --- [@Linkedin](https://www.linkedin.com/in/colton-rennie-22a907b1/) ---  Colton.Rennie@hotmail.com ---
 Github Link : [https://github.com/ColtonRennie](https://github.com/ColtonRennie)
 
 
-Loren Chen : 
+Loren Chen : [@Facebook](https://www.facebook.com/loren.chen1/) --- [@Linkedin](https://www.linkedin.com/in/loren-chen-6258b7125/) --- [@Twitter](https://twitter.com/Colton_Rennie90) --- loren840603@gmail.com
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

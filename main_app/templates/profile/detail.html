@@ -1,15 +1,5 @@
 {% extends 'base.html' %} {% block content %}
 <div class="card-panel">
-  <h3>
-    Welcome! <span class="black-text">{{user.username}} </span
-    ><span
-      ><a
-        class="btn black yellow-text text-darken-2"
-        href="{% url 'profile_update' profile.id%}"
-        >Edit Profile</a
-      ></span
-    >
-  </h3>
   {% if profile.checkedin_for_today %}
   <div class="checked-in">
     You are checked-in! Click
@@ -27,20 +17,30 @@
     >
   </div>
   {% endif %}
+  <h3>
+    Welcome! <span class="black-text">{{user.username}} </span
+    ><span
+      ><a
+        class="btn black yellow-text text-darken-2"
+        href="{% url 'profile_update' profile.id%}"
+        >Edit Profile</a
+      ></span
+    >
+  </h3>
   <div class="card">
     <div class="card-content">
       <span class="card-title">Daily Summary</span>
       <h6>Calories Remaining: {{profile.calculate_calories_remaining}}</h6>
-      <a
-        class="food_index btn black yellow-text text-darken-2"
-        href="{% url 'food_index' %}"
-        >Daily FOOD Detail</a
-      ><br />
-      <a
-        class="food_create btn black yellow-text text-darken-2"
-        href="{% url 'food_create' %}"
-        >ADD FOOD</a
-      >
+      <div class="summary-button">
+        <a class="btn black yellow-text text-darken-2" href="{% url 'food_index' %}">
+          Daily FOOD Detail
+        </a>
+      </div><br>
+      <div class="summary-button">
+        <a class="btn black yellow-text text-darken-2" href="{% url 'food_create' %}">
+          ADD FOOD
+        </a>
+      </div>
     </div>
   </div>
 

@@ -10,7 +10,6 @@ from .forms import UserForm
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from datetime import date
-import datetime
 
 def home(request):
   return render(request,'base.html')

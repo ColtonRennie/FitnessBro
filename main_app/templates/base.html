@@ -40,9 +40,25 @@
           </ul>
           <ul class="right">
             {% if user.is_authenticated %}
-            <li><a href="{% url 'food_history' %}">History</a></li>
-            <li><a href="{% url 'profile_detail' %}">Profile</a></li>
-            <li><a href="{% url 'logout' %}">Log Out</a></li>
+            <li>
+              <a
+                class="yellow-text text-darken-3"
+                href="{% url 'food_history' %}"
+                >History</a
+              >
+            </li>
+            <li>
+              <a
+                class="yellow-text text-darken-3"
+                href="{% url 'profile_detail' %}"
+                >Profile</a
+              >
+            </li>
+            <li>
+              <a class="yellow-text text-darken-3" href="{% url 'logout' %}"
+                >Log Out</a
+              >
+            </li>
             {% else %}
             <li><a href="{% url 'signup' %}">Sign Up</a></li>
             <li><a href="{% url 'login' %}">Log In</a></li>
@@ -67,7 +83,7 @@
       {% endblock %}
     </main>
     <footer class="page-footer black">
-      <div class="right">
+      <div class="right yellow-text text-darken-3">
         All Rights Reserved, &copy; FitnessBro 2022 &nbsp;
       </div>
     </footer>

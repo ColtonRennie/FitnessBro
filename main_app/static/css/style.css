@@ -1,24 +1,26 @@
 * {
-  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-weight: bolder;
 }
 body {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  background-image: url('/static/images/crop.jpg');
 }
 
 main {
   flex: 1 0 auto;
 }
 
-.main-page{
+.main-page {
   font-size: 30px;
   height: 200px;
   position: relative;
-
 }
 
-.main-page p{
+.main-page p {
   margin: 0;
   position: absolute;
   top: 50%;
@@ -37,4 +39,18 @@ a.padright {
 
 span {
   font-size: 20px;
+}
+
+#logo {
+  width: 5rem;
+  height: 4.25rem;
+}
+
+.opening {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 64px;
 }

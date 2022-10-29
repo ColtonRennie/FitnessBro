@@ -60,8 +60,16 @@
               >
             </li>
             {% else %}
-            <li><a href="{% url 'signup' %}">Sign Up</a></li>
-            <li><a href="{% url 'login' %}">Log In</a></li>
+            <li>
+              <a class="yellow-text text-darken-3" href="{% url 'signup' %}"
+                >Sign Up</a
+              >
+            </li>
+            <li>
+              <a class="yellow-text text-darken-3" href="{% url 'login' %}"
+                >Log In</a
+              >
+            </li>
             {% endif %}
           </ul>
         </div>

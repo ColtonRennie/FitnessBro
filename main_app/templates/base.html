@@ -24,13 +24,23 @@
   <body>
     <header class="navbar-fixed">
       <nav>
-        <div class="nav-wrapper black lighten-3">
+        <div class="nav-wrapper black">
           <ul>
             <li>
               {% if user.is_authenticated %}
-              <a href="{% url 'profile_detail' %}" class="left brand-logo">&nbsp;&nbsp;FitnessBro</a>
+              <a href="{% url 'profile_detail' %}" class="left brand-logo"
+                >&nbsp;&nbsp;&nbsp;&nbsp;<img
+                  id="logo"
+                  src="{% static 'images/logo1.jpg' %}"
+                  alt=""
+              /></a>
               {% else %}
-              <a href="{% url 'home' %}" class="left brand-logo">&nbsp;&nbsp;FitnessBro</a>
+              <a href="{% url 'home' %}" class="left brand-logo"
+                >&nbsp;&nbsp;&nbsp;&nbsp;<img
+                  id="logo"
+                  src="{% static 'images/logo1.jpg' %}"
+                  alt=""
+              /></a>
               {% endif %}
             </li>
           </ul>
@@ -49,10 +59,10 @@
     </header>
     <main class="container">
       {% block content %}
-      <div class="main-page">
+      <div class="card-panel opening">
         <p>
-          FitnessBro got your back, start tracking your eating habits for free.
-          &nbsp;<a href="{% url 'signup' %}">Sign Up</a>
+          FitnessBro got your back, start tracking your eating habits for free
+          &nbsp;<a href="{% url 'signup' %}">Sign Up Here</a>
         </p>
       </div>
       {% endblock %}

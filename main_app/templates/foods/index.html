@@ -1,26 +1,25 @@
-{% extends 'base.html' %}
-{% block content %}
-
-<h1>Daily Food Summary</h1>
-{% if not foods%}
-<div class="card-panel black-text center-align">you haven't eaton for today, click <a href="{% url 'food_create' %}">here</a> to start off your day!</div>
-{% else %}
-{% for food in foods %}
-    <div class="card">
-        <div class="card-content">
-            <span class="card-title">{{ food.name }}</span>
-            <p>Calories: {{ food.calories }}</p>
-            <p>Protein: {{ food.protein }}g</p>
-            <p>Fats: {{ food.fats }}g</p>
-            <p>Carbohydrates: {{ food.carbohydrates }}g</p>
-            <p>Sodium: {{ food.sodium }}mg</p>
-        </div>
-      <div class="card-action">
-        <a href="{% url 'food_update' food.id %}">Edit</a>
-        <a href="{% url 'food_delete' food.id %}">Delete</a>
-      </div>  
+{% extends 'base.html' %} {% block content %}
+<div class="card-panel">
+  <h1>Daily Food Summary</h1>
+  {% if not foods%}
+  <div class="card-panel black-text center-align">
+    You Have Not Added Food Today, Click
+    <a href="{% url 'food_create' %}">Here</a> to Start Off Your Day!
+  </div>
+  {% else %} {% for food in foods %}
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ food.name }}</span>
+      <p>Calories: {{ food.calories }}</p>
+      <p>Protein: {{ food.protein }}g</p>
+      <p>Fats: {{ food.fats }}g</p>
+      <p>Carbohydrates: {{ food.carbohydrates }}g</p>
+      <p>Sodium: {{ food.sodium }}mg</p>
     </div>
-{% endfor %}
-{% endif %}
-{% endblock %}
-
+    <div class="card-action">
+      <a href="{% url 'food_update' food.id %}">Edit</a>
+      <a href="{% url 'food_delete' food.id %}">Delete</a>
+    </div>
+  </div>
+</div>
+{% endfor %} {% endif %} {% endblock %}

@@ -48,7 +48,7 @@
       data: {
         labels : [{% for item in data %}"{{ item.date }}",{% endfor %}],
           datasets: [{
-            label: "Body Weight Graph",
+            label: "Body Weight",
             data : [{% for item in data %}{{ item.weight }},{% endfor %}],
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
             borderColor: 'rgba(75, 192, 192, 1)',
@@ -69,7 +69,7 @@
       data: {
         labels : [{% for item in data %}"{{ item.date }}",{% endfor %}],
           datasets: [{
-            label: "Body Fat Graph",
+            label: "Body Fat",
             data : [{% for item in data %}{{ item.bodyfat }},{% endfor %}],
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
             borderColor: 'rgba(75, 192, 192, 1)',

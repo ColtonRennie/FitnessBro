@@ -10,6 +10,7 @@ from .forms import UserForm
 from django.contrib.auth.forms import PasswordChangeForm
 from django.contrib.auth import update_session_auth_hash
 from datetime import date
+import datetime
 
 def home(request):
   return render(request,'base.html')
@@ -100,3 +101,16 @@ class HealthRecordUpdate(LoginRequiredMixin, UpdateView):
   def form_valid(self, form):
     form.instance.user = self.request.user  
     return super().form_valid(form)  
+
+@login_required
+def food_history(request):
+  if request.body:
+      search = request.body.decode().split('&')[-1].split('=')[-1].split('-')
+      search_date = date(int(search[0]), int(search[1]), int(search[2]))
+      foods = Food.objects.filter(user=request.user, date=search_date)
+      calories_consumed = 0
+      for food in foods:
+        calories_consumed+=food.calories
+      return render(request, 'foods/history.html', {'date': search_date, 'foods': foods, 'calories_consumed': calories_consumed})
+  else:
+    return render(request, 'foods/history.html', {'foods': {}})  

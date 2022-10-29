@@ -9,7 +9,11 @@
 
   <form action="" method="POST">
     {% csrf_token %}
-    <input type="submit" value="Yes - Delete!" class="btn" />
+    <input
+      type="submit"
+      value="Yes - Delete!"
+      class="btn black yellow-text text-darken-3"
+    />
     <a href="{% url 'food_index' %}">Cancel</a>
   </form>
 </div>

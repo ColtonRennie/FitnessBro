@@ -54,14 +54,19 @@
     <main class="container">
       {% block content %}
       <div class="card-panel opening">
-        <p>
-          FitnessBro got your back, start tracking your eating habits for free
-          &nbsp;<a href="{% url 'signup' %}">Sign Up Here</a>
-        </p>
+        <h2>At FitnessBro We've Got Your Back.</h2>
+        <h4>
+          Start Tracking Your Eating Habits For Free!
+          <a
+            class="btn black yellow-text text-darken-3"
+            href="{% url 'signup' %}"
+            >Sign Up Here</a
+          >
+        </h4>
       </div>
       {% endblock %}
     </main>
-    <footer class="page-footer black lighten-3">
+    <footer class="page-footer black">
       <div class="right">
         All Rights Reserved, &copy; FitnessBro 2022 &nbsp;
       </div>

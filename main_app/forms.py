@@ -5,7 +5,7 @@ from .models import Profile
 
 class UserForm(UserCreationForm):
     age = forms.IntegerField(required=True)
-    height = forms.IntegerField(required=True)
+    height = forms.IntegerField(label_suffix='(cm):', required=True)
     daily_calories_goal = forms.IntegerField(required=True)
     class Meta:
         model = User
@@ -18,3 +18,5 @@ class UserForm(UserCreationForm):
         user = super(UserForm, self).save()
         Profile.objects.create(age=age, user=user, height=height, daily_calories_goal=daily_calories_goal)
         return user
+
+

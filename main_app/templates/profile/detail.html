@@ -31,22 +31,27 @@
     <div class="card-content">
       <span class="card-title">Daily Summary</span>
       <h6>Calories Remaining: {{profile.calculate_calories_remaining}}</h6>
-      <div class="summary-button">
-        <a
-          class="btn black yellow-text text-darken-2"
-          href="{% url 'food_index' %}"
-        >
-          Daily FOOD Detail
-        </a>
-      </div>
-      <br />
-      <div class="summary-button">
-        <a
-          class="btn black yellow-text text-darken-2"
-          href="{% url 'food_create' %}"
-        >
-          ADD FOOD
-        </a>
+      <div class="row">
+        <div class="col s6">
+          <p>total cals: {{total_cals}}</p>
+          <p>total protein: {{total_protein}}g</p>
+          <p>total fat: {{total_fat}}g</p>
+          <p>total carbs: {{total_carbs}}g</p>
+          <p>total sodium: {{total_sodium}}mg</p>
+        </div>
+        <div class="col s6">
+          <div class="summary-button">
+            <a class="btn black yellow-text text-darken-2" href="{% url 'food_index' %}">
+              Daily FOOD Detail
+            </a>
+          </div>
+          <br />
+          <div class="summary-button">
+            <a class="btn black yellow-text text-darken-2" href="{% url 'food_create' %}">
+              ADD FOOD
+            </a>
+          </div>
+        </div>
       </div>
     </div>
   </div>

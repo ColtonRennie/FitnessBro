@@ -34,10 +34,28 @@ def signup(request):
 def profile_detail(request):
   profile = Profile.objects.get(user=request.user)
   data = HealthRecord.objects.filter(user=request.user).order_by('date')
+  foods = Food.objects.filter(user=request.user, date=date.today())
+  total_cals = 0
+  total_protein = 0
+  total_fat = 0
+  total_carbs = 0
+  total_sodium = 0
+  for food in foods:
+    total_cals += food.calories
+    total_protein += food.protein
+    total_fat += food.fats
+    total_carbs += food.carbohydrates
+    total_sodium += food.sodium
+
   return render(request, 'profile/detail.html', {
     'profile': profile, 
     'user': request.user,
-    "data": data
+    "data": data,
+    'total_cals': total_cals,
+    'total_protein': total_protein,
+    'total_fat' : total_fat,
+    'total_carbs' : total_carbs,
+    'total_sodium' : total_sodium
   })
 
 class FoodCreate(LoginRequiredMixin, CreateView):
@@ -47,7 +65,6 @@ class FoodCreate(LoginRequiredMixin, CreateView):
   def form_valid(self, form):
     form.instance.user = self.request.user  
     return super().form_valid(form)
-
 
 @login_required
 def food_index(request):
@@ -77,11 +94,11 @@ def password_change(request):
   context = {'form': form, 'error_message': error_message}
   return render(request, 'registration/password-change.html', context)  
 
-class FoodUpdate(UpdateView):
+class FoodUpdate(LoginRequiredMixin, UpdateView):
   model = Food
   fields = ['name', 'calories','protein', 'fats', 'carbohydrates', 'sodium']   
 
-class FoodDelete(DeleteView):
+class FoodDelete(LoginRequiredMixin, DeleteView):
   model = Food
   success_url = '/food/' 
 

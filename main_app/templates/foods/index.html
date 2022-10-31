@@ -1,21 +1,35 @@
-{% extends 'base.html' %}
-{% block content %}
-
-<h1>Daily Food Summary</h1>
-
-{% for food in foods %}
-  <a href=''>
-    <div class="card">
-        <div class="card-content">
-            <span class="card-title">{{ food.name }}</span>
-            <p>Calories: {{ food.calories }}</p>
-            <p>Protein: {{ food.protein }}</p>
-            <p>Fats: {{ food.fats }}</p>
-            <p>Carbohydrates: {{ food.carbohydrates }}</p>
-            <p>Sodium: {{ food.sodium }}</p>
-        </div>
+{% extends 'base.html' %} {% block content %}
+<div class="card-panel">
+  <h1>Daily Food Details</h1>
+  {% if not foods%}
+  <div class="card-panel black-text center-align">
+    You Have Not Added Food Today, Click
+    <a href="{% url 'food_create' %}">Here</a> to Start Off Your Day!
+  </div>
+  {% else %} {% for food in foods %}
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ food.name }}</span>
+      <p>Calories: {{ food.calories }}</p>
+      <p>Protein: {{ food.protein }}g</p>
+      <p>Fats: {{ food.fats }}g</p>
+      <p>Carbohydrates: {{ food.carbohydrates }}g</p>
+      <p>Sodium: {{ food.sodium }}mg</p>
     </div>
-  </a>
-{% endfor %}
-{% endblock %}
+    <div class="card-action">
+      <a
+        class="btn black yellow-text text-darken-2"
+        href="{% url 'food_update' food.id %}"
+        >Edit</a
+      >
+      <a
+        class="btn black yellow-text text-darken-2"
+        href="{% url 'food_delete' food.id %}"
+        >Delete</a
+      >
+    </div>
+  </div>
 
+  {% endfor %} {% endif %}
+</div>
+{% endblock %}

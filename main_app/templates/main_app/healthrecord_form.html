@@ -1,9 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 <div class="card-panel">
-  <h1>
-    Edit
-    <span class="black-text">({{user.first_name}} {{user.last_name}})</span>
-  </h1>
+  <h1>Check-In</h1>
   <!-- Leaving the action empty makes the form post to the same url used to display it -->
   <form action="" method="post">
     <!-- Django requires the following for security purposes -->
@@ -15,14 +12,8 @@
     <input
       type="submit"
       value="save"
-      class="btn black yellow-text text-darken-2"
+      class="btn black yellow-text text-darken-3"
     />
   </form>
-  <br />
-  <a
-    class="btn black yellow-text text-darken-2"
-    href="{% url 'password_update'%}"
-    >change password</a
-  >
 </div>
 {% endblock %}

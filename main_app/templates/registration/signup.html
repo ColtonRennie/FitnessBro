@@ -1,93 +1,18 @@
 {% extends 'base.html' %} {% block content %}
+<div class="card-panel">
+  <h1>Sign Up</h1>
 
-<h1>Sign Up</h1>
+  {% if error_message %}
+  <p class="red-text">{{ error_message }}</p>
+  {% endif %}
 
-{% if error_message %}
-<p class="red-text">{{ error_message }}</p>
-{% endif %}
-
-<form method="post" action="{% url 'signup' %}">
-  {% csrf_token %}
-  <p>
-    <label for="id_first_name">First name:</label>
-    <input type="text" name="first_name" maxlength="150" id="id_first_name" />
-  </p>
-
-  <p>
-    <label for="id_last_name">Last name:</label>
-    <input type="text" name="last_name" maxlength="150" id="id_last_name" />
-  </p>
-
-  <p>
-    <label for="id_age">Age:</label>
-    <input type="number" name="age" required="" id="id_age" />
-  </p>
-
-  <p>
-    <label for="id_height" class="">Height (cm):</label>
-    <input type="number" name="height" required="" id="id_height" />
-  </p>
-
-  <p>
-    <label for="id_username" class="">Username:</label>
+  <form method="post" action="{% url 'signup' %}">
+    {% csrf_token %} {{ form.as_p }}
     <input
-      type="text"
-      name="username"
-      maxlength="150"
-      autofocus=""
-      required=""
-      id="id_username"
+      type="submit"
+      class="btn black yellow-text text-darken-3"
+      value="signup"
     />
-
-    <span class="helptext"
-      >Required. 150 characters or fewer. Letters, digits and @/./+/-/_
-      only.</span
-    >
-  </p>
-
-  <p>
-    <label for="id_email">Email address:</label>
-    <input type="email" name="email" maxlength="254" id="id_email" />
-  </p>
-
-  <p>
-    <label for="id_password1">Password:</label>
-    <input
-      type="password"
-      name="password1"
-      autocomplete="new-password"
-      required=""
-      id="id_password1"
-    />
-
-    <span class="helptext"></span>
-  </p>
-  <ul>
-    <li>
-      Your password can’t be too similar to your other personal information.
-    </li>
-    <li>Your password must contain at least 8 characters.</li>
-    <li>Your password can’t be a commonly used password.</li>
-    <li>Your password can’t be entirely numeric.</li>
-  </ul>
-
-  <p></p>
-
-  <p>
-    <label for="id_password2">Password confirmation:</label>
-    <input
-      type="password"
-      name="password2"
-      autocomplete="new-password"
-      required=""
-      id="id_password2"
-    />
-
-    <span class="helptext"
-      >Enter the same password as before, for verification.</span
-    >
-  </p>
-  <input type="submit" class="btn" value="signup" />
-</form>
-
+  </form>
+</div>
 {% endblock %}

@@ -18,8 +18,6 @@
   </p>
 </div>
 
-
-
 <!-- TABLE OF CONTENTS -->
 <div>
   <h2>Table of Contents</h2>
@@ -35,10 +33,10 @@
   </ol>
 </div>
 
-
-
 <!-- ABOUT THE PROJECT -->
+
 ## About The Project
+
 <div align = 'center'>
   <h2>THE PLAN BREAKDOWN</h2>
   <br>
@@ -56,37 +54,37 @@
   <p>After you signing in you can now add foods to your daily food tracker which also allows your to set your daily max calories - track your body weight and bmi and see it all in real-time looking at the graphs on the home page.</p> 
 </div>
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 ### Built With
 
-* [![trello][trello.com]][trello-url]
-* [![github][github.com]][github-url]
-* [![visualstudio][visualstudio.com]][visualstudio-url]
-* [![python][python.org]][python-url]
-* [![django][djangoproject.com]][django-url]
-* [![materializecss][materializecss.com]][materializecss-url]
+- [![trello][trello.com]][trello-url]
+- [![github][github.com]][github-url]
+- [![visualstudio][visualstudio.com]][visualstudio-url]
+- [![python][python.org]][python-url]
+- [![django][djangoproject.com]][django-url]
+- [![materializecss][materializecss.com]][materializecss-url]
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- ROADMAP -->
+
 ## Roadmap
 
+- Registration Features
 - Add-Food-Tracker
 - Add-Weight & BMI Tracker
-- Add-Graph to Show Progression 
-- 
+- Add-Graph to Show Progression
+- Add-History Tracker to see what your have ate in the past
+
 ## Issues or Enhancements
+
 See the [open issues](https://github.com/ColtonRennie/FitnessBro/issues) for a full list of proposed features (and known issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- CONTRIBUTING -->
+
 ## Contributing
 
 Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
@@ -102,33 +100,25 @@ Don't forget to give the project a star! Thanks again!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-
-
 <!-- CONTACT -->
+
 ## Contact
 
-Colton Rennie : [@Facebook](https://www.facebook.com/colton.rennie) --- [@Linkedin](https://www.linkedin.com/in/colton-rennie-22a907b1/) ---  Colton.Rennie@hotmail.com ---
+Colton Rennie : [@Facebook](https://www.facebook.com/colton.rennie) --- [@Linkedin](https://www.linkedin.com/in/colton-rennie-22a907b1/) --- Colton.Rennie@hotmail.com ---
 Github Link : [https://github.com/ColtonRennie](https://github.com/ColtonRennie)
-
 
 Loren Chen : [@Facebook](https://www.facebook.com/loren.chen1/) --- [@Linkedin](https://www.linkedin.com/in/loren-chen-6258b7125/) --- [@Twitter](https://twitter.com/Colton_Rennie90) --- loren840603@gmail.com
 
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 
 <!-- ACKNOWLEDGMENTS -->
+
 ## Acknowledgments
 
-* [GeneralAssembly](https://generalassemb.ly/)
-* [Denis Dujota- Instructor @ GA](https://github.com/Dujota)
-
+- [GeneralAssembly](https://generalassemb.ly/)
+- [Denis Dujota- Instructor @ GA](https://github.com/Dujota)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
 
 [trello.com]: https://img.shields.io/badge/Trello-0052CC?style=for-the-badge&logo=trello&logoColor=white
 [trello-url]: https://trello.com/
@@ -142,4 +132,3 @@ Loren Chen : [@Facebook](https://www.facebook.com/loren.chen1/) --- [@Linkedin](
 [django-url]: https://djangoproject.com/
 [python.org]: https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=Python&logoColor=white
 [python-url]: https://www.python.org/
-
